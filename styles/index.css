@@ -348,6 +348,42 @@ body{
     font-size: 1.2rem;
 }
 
+.hero-block__phone-menu{
+    position: absolute;
+    bottom: 3%;
+    left: 10%;
+    display: flex;
+    width: 500px;
+    background-color: white;
+    border-radius: 50px;
+
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero-block__phone-icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    left: 5%;
+}
+
+.hero-block__menu-coins{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.hero-block__coins-text{
+    font-size: 1.2rem;
+    color:#000000
+}
+
 .hero-block__fin-coins{
     width: 150px;
     display: flex;
