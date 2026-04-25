@@ -1,0 +1,51 @@
+
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media (max-width: 400px) {
+  .wheel-wrapper {
+    width: 290px;
+    height: 290px;
+  }
+  .header h1 { font-size: 24px; }
+  .center-btn { width: 62px; height: 62px; font-size: 18px; }
+  .popup-card { width: 280px; padding: 28px 22px; }
+}
+
+@media (max-width: 340px) {
+  .wheel-wrapper {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--white) 0%,
+    var(--yellow) 25%,
+    var(--white) 50%,
+    var(--yellow) 75%,
+    var(--white) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Subtle rotation glow animation on wheel */
+@keyframes rotateGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

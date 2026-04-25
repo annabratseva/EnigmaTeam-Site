@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Finik — Твой Финтех Питомец</title>
+    <link rel="stylesheet" href="../styles/finik.css">
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div class="bg-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <div class="app">
+        <div class="header">
+            <div class="streak-badge"><span>🔥</span><span id="streakCount">1</span> дней</div>
+            <div class="coins-display">
+                <img src="https://i.postimg.cc/8PXQf20Y/coin.png" alt="" class="hero-block__coin">
+                <span id="coinsCount">100</span>
+            </div>
+        </div>
+
+        <!-- HOME VIEW -->
+        <div class="view active" id="homeView">
+            <div class="character-container">
+                <div class="character-wrapper">
+                    <!-- FINIK — redrawn from concept art -->
+                     
+
+                    <img src="https://i.postimg.cc/Kjbtmsbx/finik1.png" alt="" class="hero-block__finik1">
+                    <img src="https://i.postimg.cc/TYrHjZ1g/photo-2026-04-25-03-23-50.jpg" alt="" class="hero-block__bg">
+                    
+                        
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-icon">😊</div>
+                        <div class="stat-bar">
+                            <div class="stat-fill mood" id="moodBar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-bar">
+                            <div class="stat-fill energy" id="energyBar" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon">🍖</div>
+                        <div class="stat-bar">
+                            <div class="stat-fill hunger" id="hungerBar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions-container">
+                    <button class="action-btn" onclick="actionFeed()">🍎<span>Покормить</span></button>
+                    <button class="action-btn" onclick="actionPlay()">🎮<span>Играть</span></button>
+                    <button class="action-btn" onclick="actionPet()">🤗<span>Погладить</span></button>
+                    <button class="action-btn" onclick="actionSleep()">💤<span>Спать</span></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TASKS VIEW -->
+        <div class="view" id="tasksView">
+            <div class="tasks-header">
+                <h2>📋 Задания</h2>
+                <p style="color: rgba(255,255,255,0.5); font-size: 14px;">Выполняй задания и получай награды</p>
+            </div>
+            <div class="tasks-list" id="tasksList"></div>
+        </div>
+
+
+        
+
+        <!-- SPIN VIEW -->
+        <!-- <div class="view" id="spinView">
+            <div class="spin-container">
+                <div class="wheel-wrapper">
+                    <canvas id="wheelCanvas" width="300" height="300"></canvas>
+                </div>
+                <button class="spin-btn" id="spinBtn" onclick="spinWheel()">🎡 Крутить!</button>
+            </div>
+        </div> -->
+
+        <!-- SHOP VIEW -->
+        <div class="view" id="shopView">
+            <div class="shop-header">
+                <h2>🛍️ Магазин</h2>
+                <div class="coins-display" style="padding: 6px 12px; font-size: 14px;">
+                    <svg class="shop-coin-svg" viewBox="0 0 40 40">
+                        <defs>
+                            <radialGradient id="coinGradShop" cx="35%" cy="30%" r="65%">
+                                <stop offset="0%" style="stop-color:#FFE066"/>
+                                <stop offset="50%" style="stop-color:#FFD700"/>
+                                <stop offset="100%" style="stop-color:#B8860B"/>
+                            </radialGradient>
+                            <filter id="coinGlowShop">
+                                <feGaussianBlur stdDeviation="2" result="blur"/>
+                                <feFlood flood-color="#FFD700" flood-opacity="0.6"/>
+                                <feComposite in2="blur" operator="in"/>
+                                <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                        </defs>
+                        <ellipse cx="20" cy="20" rx="18" ry="18" fill="url(#coinGradShop)" filter="url(#coinGlowShop)"/>
+                        <ellipse cx="20" cy="20" rx="15" ry="15" fill="none" stroke="#DAA520" stroke-width="1.5"/>
+                        <path d="M14 16 L15 12 L16 14 L17 11 L18 13 L19 10 L20 12 L21 10 L22 13 L23 11 L24 14 L25 12 L26 16 Q26 20 24 22 Q22 24 20 24 Q18 24 16 22 Q14 20 14 16Z"
+                              fill="#DAA520" opacity="0.8"/>
+                        <ellipse cx="17.5" cy="17" rx="1.5" ry="1.8" fill="#B8860B"/>
+                        <ellipse cx="22.5" cy="17" rx="1.5" ry="1.8" fill="#B8860B"/>
+                        <ellipse cx="20" cy="19.5" rx="1" ry="0.8" fill="#B8860B"/>
+                        <path d="M19 21 Q20 22 21 21" stroke="#B8860B" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+                    </svg>
+                    <span id="shopCoins">100</span>
+                </div>
+            </div>
+            <div class="shop-grid" id="shopGrid"></div>
+        </div>
+
+        <nav class="bottom-nav">
+            <div class="nav-item active" onclick="switchView('home')"><span>🏠</span><span>Дом</span></div>
+            <div class="nav-item" onclick="switchView('tasks')"><span>📋</span><span>Задания</span></div>
+            <div class="nav-item" onclick="spinWheel()"><span>🎡</span><span>Рулетка</span></div>
+            <div class="nav-item" onclick="switchView('shop')"><span>🛍️</span><span>Магазин</span></div>
+        </nav>
+    </div>
+
+    <div class="notification" id="notification">
+        <span class="notification-icon" id="notifIcon">🎉</span>
+        <span id="notifText">Награда получена!</span>
+    </div>
+
+   
+</body>
+<script src="../js/finik.js"></script>
+</html>

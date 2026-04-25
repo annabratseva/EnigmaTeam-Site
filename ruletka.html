@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="../styles/ruletka.css">
+<title>🎡 Рулетка Удачи</title>
+</head>
+<body>
+
+<!-- ═══════════ ANIMATED BACKGROUND ORBS ═══════════ -->
+<div class="bg-orbs">
+  <div class="orb"></div>
+  <div class="orb"></div>
+  <div class="orb"></div>
+</div>
+
+<!-- ═══════════ CONFETTI CANVAS ═══════════ -->
+<canvas id="confettiCanvas"></canvas>
+
+<!-- ═══════════ MAIN APP ═══════════ -->
+<div class="app-container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>🎡 Рулетка Удачи</h1>
+    <p>Крути и выигрывай призы!</p>
+  </div>
+
+  <!-- Spins Badge -->
+  <div class="spins-badge">
+    🎫 Осталось вращений: <span class="count" id="spinsCount">∞</span>
+  </div>
+
+  <!-- Wheel -->
+  <div class="wheel-wrapper">
+    <div class="wheel-outer-ring"></div>
+    <div class="wheel-dots" id="wheelDots"></div>
+    <canvas id="wheelCanvas" width="320" height="320"></canvas>
+    <div class="pointer"></div>
+    <button class="center-btn" id="spinBtn" aria-label="Крутить">GO!</button>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-icon">🏆</div>
+      <div class="stat-value" id="totalWins">0</div>
+      <div class="stat-label">Побед</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">💰</div>
+      <div class="stat-value" id="totalCoins">0</div>
+      <div class="stat-label">Монет</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⭐</div>
+      <div class="stat-value" id="totalStreak">0</div>
+      <div class="stat-label">Серия</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════ RESULT POPUP ═══════════ -->
+<div class="popup-overlay" id="popup">
+  <div class="popup-card">
+    <span class="popup-emoji" id="popupEmoji">🎉</span>
+    <div class="popup-title" id="popupTitle">Поздравляем!</div>
+    <div class="popup-desc" id="popupDesc">Вы выиграли приз</div>
+    <button class="popup-btn" id="popupBtn">Забрать приз 🎁</button>
+  </div>
+</div>
+
+
+</body>
+
+<script src="../js/ruletka.js"></script>
+</html>
