@@ -158,7 +158,7 @@
         .tasks-header h2 {
             font-size: 24px; margin-bottom: 8px;
             background: linear-gradient(135deg, var(--white), var(--yellow));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            /* -webkit-background-clip: text; -webkit-text-fill-color: transparent; */
         }
         .tasks-list { display: flex; flex-direction: column; gap: 12px; overflow-y: auto; flex: 1; padding-bottom: 20px; }
         .task-card {
@@ -197,7 +197,7 @@
         .shop-header h2 {
             font-size: 24px;
             background: linear-gradient(135deg, var(--white), var(--pink));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            /* -webkit-background-clip: text; -webkit-text-fill-color: transparent; */
         }
         .shop-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; overflow-y: auto; flex: 1; padding-bottom: 20px; }
         .shop-item {
